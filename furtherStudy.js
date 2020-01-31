@@ -21,21 +21,25 @@ function kidsGame(names) {
   const firstLetterToWords = {};
 
   for (const name of names) {
-    if !(firstLetterToWords.has(name[0])) {
-      firstLetterToWords.name[0] = [name];
+    if (firstLetterToWords.hasOwnProperty(name[0]) === false) {
+      firstLetterToWords[name[0]] = [name];
     } else {
-      firstLetterToWords.name[0].push(name);
+      firstLetterToWords[name[0]].push(name);
     }
   }
+  
+
   while (true) {
-    const startLetter = output[output.length - 1][output[output.length - 1].length - 1];
-    if !(firstLetterToWords.hasOwnProperty(startLetter)) {
+    const lastWord =  output[output.length - 1];
+    const startLetter = lastWord[lastWord.length - 1];
+    
+    if (firstLetterToWords[startLetter].length === 0) {
       break;
     }
-    const word = firstLetterToWords.startLetter.shift()
+    const word = firstLetterToWords[startLetter].shift()
     output.push(word)
   }
   return output
 }
 
-// ["bagon", "baltoy", "yamask", "starly", "nosepass", "kalob", "nicky", "booger"]
+console.log(kidsGame(["bagon", "baltoy", "yamask", "starly", "nosepass", "kalob", "nicky", "booger"]))
