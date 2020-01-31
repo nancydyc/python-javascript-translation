@@ -6,6 +6,7 @@ function countWords(phrase) {
   const wordCounts = {};
 
   for (const word of phrase.split(' ')) {
+    // if (wordCounts[word])
     if (wordCounts.hasOwnProperty(word)) {
       wordCounts[word] += 1;
     } else {
